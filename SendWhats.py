@@ -1,5 +1,4 @@
 from urllib.parse import quote
-from urllib.parse import quote
 import webbrowser
 from time import sleep
 import pyautogui
@@ -7,7 +6,8 @@ import os
 
 class SendWhats:
     def send(self, number):
-        mensagem = f'Olá somente um teste'
+        
+        mensagem = self.getMessage()
         try:
             link_mensagem_whatsapp = f'https://web.whatsapp.com/send?phone={number}&text={quote(mensagem)}'
             webbrowser.open(link_mensagem_whatsapp) 
@@ -26,4 +26,8 @@ class SendWhats:
         finally:
             pyautogui.hotkey('ctrl','w')
             sleep(2)
+    def getMessage():
+        with open('message.txt','+r') as file:
+            return file.read()
+        return None
 
