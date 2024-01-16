@@ -26,8 +26,10 @@ class SendWhats:
         finally:
             pyautogui.hotkey('ctrl','w')
             sleep(2)
-    def getMessage():
+    def getMessage(self):
         with open('message.txt','+r') as file:
-            return file.read()
+            read =  file.read()
+
+            return str(read).encode('utf-8')
         return None
 
